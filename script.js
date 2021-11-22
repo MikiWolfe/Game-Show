@@ -4,15 +4,15 @@ document.getElementById('start').addEventListener("click",start);
 
 var startTime = 100;
 
-const questions = [
+var questions = [
 {
-    'question' : 'What country produces the most coffee',
+    'question' : 'What country produces the most coffee?',
     'answers' : [ 
        
     {'answer' : 'Vietnam', 
     'correct': 'false'},
 
-    {'answer':'Brazil',
+    {'answer':'Brazil', //right answer
     'correct': 'true'},
 
     {'answer':'Indonesia',
@@ -22,10 +22,80 @@ const questions = [
     'correct':'false'}
 ]
 }
-// ,{}
+ ,{
+     'question': 'What country consumes the most coffee on a per-person basis?',
+    'answers': [ 
+    {'answer':'Canada',
+    'correct' : 'false'},
+
+    {'answer' : 'Iceland',
+    'correct' : 'false'},
+
+    {'answer' : 'Denmark',
+    'correct' : 'false'},
+
+    {'answer' : 'Finland', //right answer
+    'correct' : 'true'}
+
+] 
+}
+,{
+    'question' : 'What US city drinks the most coffee?',
+    'answers' : [
+        {'answer' : 'Seattle',
+         'correct' : 'false'},
+
+        {'answer' : 'New York City', //right answer
+        'correct' : 'true'},
+
+        {'answer' : 'Portland',
+        'correct' : 'false'},
+
+        {'answer' : 'Los Angeles',
+        'correct' : 'false'}
+    ]
+}
+,{
+    'question' : 'How many cups of coffee does the average American drink a day?',
+    'answers' : [
+        {'answer' : '3.1', //right answer
+         'correct' : 'true'}, 
+
+        {'answer' : '1.5', 
+        'correct' : 'false'},
+
+        {'answer' : '2.6',
+        'correct' : 'false'},
+
+        {'answer' : '3.7',
+        'correct' : 'false'}
+    ]
+}
+,{
+    'question': 'What country consumes the most tea?',
+    'answers' : [
+        {'answer' : 'United Kingdom',
+         'correct' : 'false'},
+
+        {'answer' : 'New Zealand', 
+        'correct' : 'false'},
+
+        {'answer' : 'Turkey', //right answer
+        'correct' : 'true'},
+
+        {'answer' : 'Ireland',
+        'correct' : 'false'}
+    ]
+}
 ]
 ;
 
+function hide() {var top =document.getElementById("head");
+if (top.style.display === "none")
+{top.style.display = "block";
+}
+else {top.style.display = "none";}
+}
 
 function time() {
 var timer = setInterval(function() {

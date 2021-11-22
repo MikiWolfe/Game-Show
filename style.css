@@ -2,6 +2,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color:linen; text-align: center;
 }
+h2 {
+padding: 2%
+}
+
 
 button {
     background-color: purple;
@@ -9,8 +13,6 @@ button {
     color:white;
     border: 100%;
     padding: 2%;
+    margin: 15px;
 }
 
-h2 {
-padding: 2%
-}
