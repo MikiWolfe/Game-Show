@@ -1,4 +1,4 @@
-var timeEl =document.querySelector('timer');
+var timeEl =document.getElementById('timer');
 var mainEl  = document.getElementById("main");
 document.getElementById('start').addEventListener("click",time())
 
@@ -12,5 +12,5 @@ var timer = setInterval(function() {
 if(startTime === 0) {
 clearInterval(timer); sendMessage() = " You are out of time! "
 }
-})};
+},1000)};
 
