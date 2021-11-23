@@ -3,6 +3,7 @@ var mainEl  = document.getElementById("main");
 document.getElementById('start').addEventListener("click",start);
 
 var startTime = 100;
+//var userInput =[""] //to store and compare user answers
 
 var questions = [
 {
@@ -103,7 +104,7 @@ var timer = setInterval(function() {
     timeEl.textContent = startTime + " seconds remaining";
 
 if(startTime === 0) {
-clearInterval(timer); sendMessage(message) = "You are out of time!"
+clearInterval(timer); sendMessage(message) = "You are out of time!" //message isn't working. why? 
 }
 },1000)};
 
@@ -126,10 +127,11 @@ function displayQuestion (questionToShow){
         coffee.appendChild(answer);
     }
 
-    document.getElementById('main').appendChild(coffee);
+   mainEl.appendChild(coffee);
     
 }
 ;
+mainEl.addEventListener("click",function(event) {
+    
+} )
 
-
-//add on click on to the answer that will click on to the next question
