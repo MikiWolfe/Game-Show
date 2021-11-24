@@ -2,9 +2,9 @@ var timeEl = document.getElementById("timer");
 var mainEl = document.getElementById("main");
 document.getElementById("start").addEventListener("click", start);
 
-var startTime = 100;
-var userInput =[""] //to store and compare user answers
-var current = 0; //for timer
+var startTime = 100; //for timer
+var userInput = [""]; //to store and compare user answers
+var current = 0;
 var questions = [
   {
     question: "What country produces the most coffee?",
@@ -123,16 +123,16 @@ function displayQuestion(questionToShow) {
   }
 
   mainEl.appendChild(coffee);
-
+}
+{
+  function hideCurrent() {
+    mainEl.innerHTML = "";
+  }
+}
 
 // event listener on click to show next question
-answer.addEventListener("click", function (event) 
-{
-  function hideCurrent() { //this whole bit doesn't work
- mainEl.innerHTML = 
-  };
+mainEl.addEventListener("click", function (event) {
   hideCurrent();
-   
-  displayQuestion();
+  current++;
+  displayQuestion(current);
 });
-}
