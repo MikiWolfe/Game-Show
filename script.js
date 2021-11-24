@@ -3,52 +3,52 @@ var mainEl = document.getElementById("main");
 document.getElementById("start").addEventListener("click", start);
 
 var startTime = 100; //for timer
-var userInput = [""]; //to store and compare user answers
+var userInputCorrect = 0; //to store and compare user answers
 var current = 0;
 var questions = [
   {
     question: "What country produces the most coffee?",
     answers: [
-      { answer: "Vietnam", correct: "false" },
+      { answer: "Vietnam", correct: false },
 
       {
         answer: "Brazil", //right answer
-        correct: "true",
+        correct: true,
       },
 
-      { answer: "Indonesia", correct: "false" },
+      { answer: "Indonesia", correct: false },
 
-      { answer: "Colombia", correct: "false" },
+      { answer: "Colombia", correct: false },
     ],
   },
   {
     question: "What country consumes the most coffee on a per-person basis?",
     answers: [
-      { answer: "Canada", correct: "false" },
+      { answer: "Canada", correct: false },
 
-      { answer: "Iceland", correct: "false" },
+      { answer: "Iceland", correct: false },
 
-      { answer: "Denmark", correct: "false" },
+      { answer: "Denmark", correct: false },
 
       {
         answer: "Finland", //right answer
-        correct: "true",
+        correct: true,
       },
     ],
   },
   {
     question: "What US city drinks the most coffee?",
     answers: [
-      { answer: "Seattle", correct: "false" },
+      { answer: "Seattle", correct: false },
 
       {
         answer: "New York City", //right answer
-        correct: "true",
+        correct: true,
       },
 
-      { answer: "Portland", correct: "false" },
+      { answer: "Portland", correct: false },
 
-      { answer: "Los Angeles", correct: "false" },
+      { answer: "Los Angeles", correct: false },
     ],
   },
   {
@@ -56,29 +56,29 @@ var questions = [
     answers: [
       {
         answer: "3.1", //right answer
-        correct: "true",
+        correct: true,
       },
 
-      { answer: "1.5", correct: "false" },
+      { answer: "1.5", correct: false },
 
-      { answer: "2.6", correct: "false" },
+      { answer: "2.6", correct: false },
 
-      { answer: "3.7", correct: "false" },
+      { answer: "3.7", correct: false },
     ],
   },
   {
     question: "What country consumes the most tea?",
     answers: [
-      { answer: "United Kingdom", correct: "false" },
+      { answer: "United Kingdom", correct: false },
 
-      { answer: "New Zealand", correct: "false" },
+      { answer: "New Zealand", correct: false },
 
       {
         answer: "Turkey", //right answer
-        correct: "true",
+        correct: true,
       },
 
-      { answer: "Ireland", correct: "false" },
+      { answer: "Ireland", correct: false },
     ],
   },
 ];
@@ -108,6 +108,7 @@ function start() {
   time();
 }
 
+//using JavaScript to create elements
 function displayQuestion(questionToShow) {
   var coffee = document.createElement("div");
   var header = document.createElement("h2");
@@ -132,7 +133,16 @@ function displayQuestion(questionToShow) {
 
 // event listener on click to show next question
 mainEl.addEventListener("click", function (event) {
+  if (questions(answers((correct = true)))) {
+    userInputCorrect++;
+  } else {
+    timer = -10;
+  }
   hideCurrent();
   current++;
   displayQuestion(current);
+
+  //compare user clicks to right answers
+
+  //if correct : true, push correct to userInput.  If wrong, time is subtracted from the clock
 });
