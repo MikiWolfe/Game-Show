@@ -109,6 +109,10 @@ function start() {
   time();
 }
 
+function hideCurrent() {
+  mainEl.innerHTML = "";
+}
+
 //using JavaScript to create elements
 function displayQuestion(questionToShow) {
   var coffee = document.createElement("div");
@@ -122,26 +126,30 @@ function displayQuestion(questionToShow) {
     var answer = document.createElement("button");
     answer.innerHTML = currentQuestion["answers"][index]["answer"];
     coffee.appendChild(answer)
-    if(answer.correct){button.dataset.correct = answer.correct};
+    if(answer.correct){
+       button.dataset.correct = answer.correct};
   }
+  
   
   mainEl.appendChild(coffee);
 }
-{
-  function hideCurrent() {
-    mainEl.innerHTML = "";
-  }
-}
+
 // event listener on click to show next question
-mainEl.addEventListener("click", function () 
+mainEl.addEventListener("click", function button() 
 {
+  userAnswer
   hideCurrent();
-  current++;
-  if(questions.length > currentQuestionIndex + 1){}
-  displayQuestion(current);
+  if (current < 4) {
+    current++;
+    displayQuestion(current)
+    } 
+
+// displayQuestion(current)
+
+
 });
 
-function selectAnswer(e){
+function userAnswer(e){
   var userSelectedButton = e.target
   var correct = userSelectedButton.dataset.correct
 setStatusClass(document.main.correct)
