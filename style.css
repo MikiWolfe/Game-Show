@@ -1,11 +1,12 @@
 *{  
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color:linen; text-align: center;
+    box-sizing: border-box;
 }
+
 h2 {
 padding: 2%
 }
-
 
 button {
     background-color: purple;
