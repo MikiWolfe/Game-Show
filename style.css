@@ -1,19 +1,31 @@
-*{  
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color:linen; text-align: center;
-    box-sizing: border-box;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: linen;
+  text-align: center;
+  box-sizing: border-box;
+  color: rgb(85, 10, 85);
 }
 
 h2 {
-padding: 2%
+  padding: 2%;
 }
 
 button {
-    background-color: purple;
-    font-size: 24px;
-    color:white;
-    border: 100%;
-    padding: 2%;
-    margin: 15px;
+  background-color: purple;
+  font-size: 24px;
+  color: white;
+  border: 100%;
+  padding: 2%;
+  margin: 15px;
+  border: solid 3px rgb(226, 179, 226);
 }
 
+nav {
+  text-align: left;
+  padding: 1.5%;
+}
+a {
+  color: rgb(85, 10, 85);
+  font-size: 24px;
+  text-decoration: none;
+}

@@ -11,14 +11,14 @@ var questions = [
     question: "What country produces the most coffee?",
     answers: [
       { answer: "Vietnam", correct: false },
-      
+
       {
         answer: "Brazil", //right answer
         correct: true,
       },
-      
+
       { answer: "Indonesia", correct: false },
-      
+
       { answer: "Colombia", correct: false },
     ],
   },
@@ -26,11 +26,11 @@ var questions = [
     question: "What country consumes the most coffee on a per-person basis?",
     answers: [
       { answer: "Canada", correct: false },
-      
+
       { answer: "Iceland", correct: false },
-      
+
       { answer: "Denmark", correct: false },
-      
+
       {
         answer: "Finland", //right answer
         correct: true,
@@ -41,14 +41,14 @@ var questions = [
     question: "What US city drinks the most coffee?",
     answers: [
       { answer: "Seattle", correct: false },
-      
+
       {
         answer: "New York City", //right answer
         correct: true,
       },
-      
+
       { answer: "Portland", correct: false },
-      
+
       { answer: "Los Angeles", correct: false },
     ],
   },
@@ -59,11 +59,11 @@ var questions = [
         answer: "3.1", //right answer
         correct: true,
       },
-      
+
       { answer: "1.5", correct: false },
-      
+
       { answer: "2.6", correct: false },
-      
+
       { answer: "3.7", correct: false },
     ],
   },
@@ -71,18 +71,19 @@ var questions = [
     question: "What country consumes the most tea?",
     answers: [
       { answer: "United Kingdom", correct: false },
-      
+
       { answer: "New Zealand", correct: false },
-      
+
       {
         answer: "Turkey", //right answer
         correct: true,
       },
-      
+
       { answer: "Ireland", correct: false },
     ],
   },
 ];
+
 function hide() {
   var top = document.getElementById("head");
   if (top.style.display === "none") {
@@ -96,7 +97,7 @@ function time() {
   var timer = setInterval(function () {
     startTime--;
     timeEl.textContent = startTime + " seconds remaining";
-    
+
     if (startTime === 0) {
       clearInterval(timer);
       alert("You are out of time!");
@@ -120,41 +121,42 @@ function displayQuestion(questionToShow) {
   var currentQuestion = questions[questionToShow];
   header.innerHTML = currentQuestion["question"];
   coffee.appendChild(header);
-  
+
   for (let index = 0; index < currentQuestion["answers"].length; index++) {
     const element = currentQuestion[index];
     var answer = document.createElement("button");
     answer.innerHTML = currentQuestion["answers"][index]["answer"];
-    coffee.appendChild(answer)
-    if(answer.correct){
-       button.dataset.correct = answer.correct};
+     if (answer.true) {
+      button.dataset.true = answer.true;
+    }
+    coffee.appendChild(answer);
+   
   }
-  
-  
   mainEl.appendChild(coffee);
 }
 
 // event listener on click to show next question
-mainEl.addEventListener("click", function button() 
-{
-  userAnswer
+mainEl.addEventListener("click", function button() {
+  // userAnswer
   hideCurrent();
-  if (current < 4) {
+  
+  if (current < questions.length -1) {
     current++;
-    displayQuestion(current)
-    } 
-
-// displayQuestion(current)
-
-
+    displayQuestion(current);
+  }
+   else (
+     prompt ("Please enter you initals for scores")
+)
 });
 
-function userAnswer(e){
+
+
+/*function userAnswer(e){
   var userSelectedButton = e.target
   var correct = userSelectedButton.dataset.correct
-setStatusClass(document.main.correct)
+  setStatusClass(document.main, correct)
 Array.from(answersButtonElement.children).forEach(button =>{
   setStatusClass(button, button.dataset.correct)
+  
 })}
-
-
+*/
