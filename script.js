@@ -1,10 +1,11 @@
-var timeEl = document.getElementById("timer");
+var timeEl = document.getElementById("timer"); 
 var mainEl = document.getElementById("main");
 
 document.getElementById("start").addEventListener("click", start);
 
-var startTime = 100; //for timer
-var current = 0;
+var startTime = 75; //start time for the timer 
+var current = 0; 
+var correctAnswers = 0;
 
 var questions = [
   {
@@ -116,47 +117,48 @@ function hideCurrent() {
 
 //using JavaScript to create elements
 function displayQuestion(questionToShow) {
-  var coffee = document.createElement("div");
-  var header = document.createElement("h2");
+  var coffee = document.createElement("div"); //creating a div for questions and answers
+  var header = document.createElement("h2"); //creating a header for the questions 
   var currentQuestion = questions[questionToShow];
   header.innerHTML = currentQuestion["question"];
-  coffee.appendChild(header);
+  coffee.appendChild(header); // appending the header to the div 
 
   for (let index = 0; index < currentQuestion["answers"].length; index++) {
-    const element = currentQuestion[index];
+    const element = currentQuestion[index]; // for loop to go through object and the index 
     var answer = document.createElement("button");
     answer.innerHTML = currentQuestion["answers"][index]["answer"];
-     if (answer.true) {
-      button.dataset.true = answer.true;
-    }
+    answer.value = currentQuestion["answers"][index]["correct"];
+    
+    answer.setAttribute(
+      "onClick",  
+      "answerLog(this.value)"
+    );
     coffee.appendChild(answer);
-   
   }
+
   mainEl.appendChild(coffee);
 }
 
 // event listener on click to show next question
-mainEl.addEventListener("click", function button() {
-  // userAnswer
+function answerLog(correct) {
+   if (correct==="true") { // Tried to not put the value in a string but for some reason would not accept Boolean here 
+    correctAnswers++;
+  } else {
+    startTime = startTime - 10; //wrong answer and the timer decreases by 10 sec
+  }
+
+console.log(startTime, correctAnswers)
   hideCurrent();
-  
-  if (current < questions.length -1) {
+  if (current < questions.length - 1) {
     current++;
     displayQuestion(current);
+  } else {var initals = prompt("Please enter you initals for scores");
+
+  if (initals != null) {
+    document.getElementById("main").innerHTML +=
+   "You got " + correctAnswers + " questions right!" ; 
+   timeEl.style.display ="none"
   }
-   else (
-     prompt ("Please enter you initals for scores")
-)
-});
 
+}}
 
-
-/*function userAnswer(e){
-  var userSelectedButton = e.target
-  var correct = userSelectedButton.dataset.correct
-  setStatusClass(document.main, correct)
-Array.from(answersButtonElement.children).forEach(button =>{
-  setStatusClass(button, button.dataset.correct)
-  
-})}
-*/

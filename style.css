@@ -19,13 +19,27 @@ button {
   margin: 15px;
   border: solid 3px rgb(226, 179, 226);
 }
-
+.high-score {
+  background-color: purple;
+  font-size: 24px;
+  color: white;
+  border: 100%;
+ 
+  padding: 2%;
+  margin: 15px;
+  border: solid 3px rgb(226, 179, 226);
+}
 nav {
   text-align: left;
-  padding: 1.5%;
+  padding: 25px;
+  padding-top: 35px;
 }
 a {
   color: rgb(85, 10, 85);
   font-size: 24px;
   text-decoration: none;
+}
+
+.coffee-cup {
+ height: 350px;
 }
