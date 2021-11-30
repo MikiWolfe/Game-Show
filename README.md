@@ -12,7 +12,7 @@ We are tasked with building a quiz game for this application.  We are using vani
     -a little bit of styling never hurt anyone. 
 
 ## Screenshot of finished work
-to be added when work is completed 
+![QuizGame](assets\images\ScreenShot.jpeg)"Quiz Game"
 
 ## Link to finished work
 to be added when work is completed
