@@ -3,7 +3,7 @@ var mainEl = document.getElementById("main");
 
 document.getElementById("start").addEventListener("click", start);
 
-var startTime = 75; //start time for the timer 
+var startTime = 35; //start time for the timer 
 var current = 0; 
 var correctAnswers = 0;
 
@@ -99,7 +99,7 @@ function time() {
     startTime--;
     timeEl.textContent = startTime + " seconds remaining";
 
-    if (startTime === 0) {
+    if (startTime <= 0) {
       clearInterval(timer);
       alert("You are out of time!");
     }
@@ -157,7 +157,7 @@ console.log(startTime, correctAnswers)
   if (initals != null) {
     document.getElementById("main").innerHTML +=
    "You got " + correctAnswers + " questions right!" ; 
-   timeEl.style.display ="none"
+   timeEl.style.display ="none" 
   }
 
 }}
