@@ -1,9 +1,9 @@
 var timeEl = document.getElementById("timer"); 
 var mainEl = document.getElementById("main");
 
-document.getElementById("start").addEventListener("click", start);
+document.getElementById("start").addEventListener("click", start); //starting the quiz and the timer
 
-var startTime = 35; //start time for the timer 
+var startTime = 50; //start time for the timer 
 var current = 0; 
 var correctAnswers = 0;
 
@@ -85,7 +85,7 @@ var questions = [
   },
 ];
 
-function hide() {
+function hide() { // hiding the h1, div and start button 
   var top = document.getElementById("head");
   if (top.style.display === "none") {
     top.style.display = "block";
@@ -94,7 +94,7 @@ function hide() {
   }
 }
 
-function time() {
+function time() { //starting the timer with alert when user runs out of time 
   var timer = setInterval(function () {
     startTime--;
     timeEl.textContent = startTime + " seconds remaining";
@@ -111,7 +111,7 @@ function start() {
   time();
 }
 
-function hideCurrent() {
+function hideCurrent() { // hiding the question to show one at time 
   mainEl.innerHTML = "";
 }
 
@@ -129,7 +129,7 @@ function displayQuestion(questionToShow) {
     answer.innerHTML = currentQuestion["answers"][index]["answer"];
     answer.value = currentQuestion["answers"][index]["correct"];
     
-    answer.setAttribute(
+    answer.setAttribute( //onclick able to check value that user clicked right away
       "onClick",  
       "answerLog(this.value)"
     );
@@ -152,9 +152,9 @@ console.log(startTime, correctAnswers)
   if (current < questions.length - 1) {
     current++;
     displayQuestion(current);
-  } else {var initals = prompt("Please enter you initals for scores");
+  } else {var initals = prompt("Please enter you initals for scores");//letting users add their itials to be stored in local storage for later  
 
-  if (initals != null) {
+  if (initals != null) { //displaying how many questions the user got correct and hiding the timer if there is still time left on it. 
     document.getElementById("main").innerHTML +=
    "You got " + correctAnswers + " questions right!" ; 
    timeEl.style.display ="none" 
@@ -162,3 +162,4 @@ console.log(startTime, correctAnswers)
 
 }}
 
+localStorage.setItem(correctAnswers, initals);
