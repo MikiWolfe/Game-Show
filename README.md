@@ -12,10 +12,10 @@ We are tasked with building a quiz game for this application.  We are using vani
     -a little bit of styling never hurt anyone. 
 
 ## Screenshot of finished work
-![QuizGame](assets\images\ScreenShot.jpeg)"Quiz Game"
+![ScreenShot](assets\images\ScreenShot.jpeg)"Quiz Game"
 
 ## Link to finished work
-to be added when work is completed
+https://mikiwolfe.github.io/Game-Show/
 -------------------------------------------------------------------------------
 
 # what does my application need to run?
