@@ -147,7 +147,6 @@ function answerLog(correct) {
     startTime = startTime - 10; //wrong answer and the timer decreases by 10 sec
   }
 
-console.log(startTime, correctAnswers)
   hideCurrent();
   if (current < questions.length - 1) {
     current++;
@@ -158,8 +157,21 @@ console.log(startTime, correctAnswers)
     document.getElementById("main").innerHTML +=
    "You got " + correctAnswers + " questions right!" ; 
    timeEl.style.display ="none" 
+
+
   }
 
 }}
 
-localStorage.setItem(correctAnswers, initals);
+/* attemping to store scores in local storage. This was the only thing I was unable to accomplish. 
+
+const score = {
+  score: correctAnswers,
+  name: initals.value
+};
+highScore.push(score); 
+
+var highScore =localStorage.setItem("correctAnswers", JSON.stringify([]));   
+localStorage.getItem('correctAnswers', JSON.parse([])) 
+
+*/

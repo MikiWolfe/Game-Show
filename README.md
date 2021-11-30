@@ -2,7 +2,7 @@
 JavaScript quiz game 
 
 ## Description 
-We are tasked with building a quiz game.  We are using vanilla JavaScript to build a multiple choice quiz game with the goal to store the high scores to be accessed later. The quiz we are building is about coffee and the timer would decrease by 10 seconds every time an answer was marked as incorrect.  We have constructed a five question multiple choice quiz about the other java, coffee and with each click from the user we are logging the correct answer and then showing the next question.  We then have created a separate HTML document to store our high scores.    
+We are tasked with building a quiz game.  We are using vanilla JavaScript to build a multiple choice quiz game with the goal to store the high scores to be accessed later. The quiz we are building is about coffee and the timer would decrease by 10 seconds every time an answer was marked as incorrect.  We have constructed a five question multiple choice quiz about the other java, coffee and with each click from the user we are logging the correct answer and then showing the next question.  We then have created a separate HTML document to store our high scores.     
 
 
 ## Things I learned 
