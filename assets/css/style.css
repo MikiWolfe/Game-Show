@@ -1,6 +1,6 @@
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: linen;
+  background-color: rgb(251, 229, 251);
   text-align: center;
   box-sizing: border-box;
   color: rgb(85, 10, 85);
@@ -38,5 +38,6 @@ nav {
 }
 
 .coffee-cup {
+  background-color: rgb(251, 229, 251);
  height: 350px;
 }
