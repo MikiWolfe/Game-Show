@@ -1,5 +1,8 @@
 var timeEl = document.getElementById("timer");
 var mainEl = document.getElementById("main");
+let updateEl =document.getElementById("update")
+let scoreEl =document.getElementById("scores")
+let storedScores = JSON.parse(localStorage.getItem("pastScores")) || []
 
 document.getElementById("start").addEventListener("click", start); //starting the quiz and the timer
 
@@ -146,10 +149,12 @@ function displayQuestion(questionToShow) {
 // event listener on click to show next question
 function answerLog(correct) {
   if (correct === "true") {
+    updateEl.innerHTML ="⭐" + "Correct!" + "⭐"
     // Tried to not put the value in a string but for some reason would not accept Boolean here
     correctAnswers++;
   } else {
-    startTime = startTime - 10; //wrong answer and the timer decreases by 10 sec
+    startTime = startTime - 10 
+    updateEl.innerHTML = "❌" + "Incorrect" + "❌" //wrong answer and the timer decreases by 10 sec
   }
 
   hideCurrent();
@@ -165,8 +170,22 @@ function answerLog(correct) {
         "You got " + correctAnswers + " questions right!";
       timeEl.style.display = "none";
     }
+    // else if (initals === null) {
+    //  prompt("Please enter your initals.")
+    // }
   }
+  let storedScores ={
+    'inital': '',
+    'score': ''
+  }
+  storedScores.inital = inital
 }
+
+
+
+
+
+
 
 /* attemping to store scores in local storage. This was the only thing I was unable to accomplish. 
 
