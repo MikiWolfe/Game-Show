@@ -104,10 +104,10 @@ function time() {
     startTime--;
     timeEl.textContent = startTime + " seconds remaining";
 
-    if (startTime <= 0) {
-      clearInterval(timer);
-      alert("You are out of time!");
-    }
+    // if (startTime <= 0) {
+    //   clearInterval(timer);
+    //   alert("You are out of time!");
+    // }
   }, 1000);
 }
 
@@ -164,54 +164,57 @@ function answerLog(correct) {
   } else {
     var initals = prompt("Please enter you initals for scores"); //letting users add their itials to be stored in local storage for later
 
-    if (initals != null) {
+    if(initals){
+
       //displaying how many questions the user got correct and hiding the timer if there is still time left on it.
       document.getElementById("main").innerHTML +=
         "You got " + correctAnswers + " questions right!";
       timeEl.style.display = "none";
+      updateEl.style.display ="none";
+      displayHighScore(initals)
     }
-    // else if (initals === null) {
-    //  prompt("Please enter your initals.")
-    // }
+    else {
+      alert("please instert your initials")
+    }
   }
-  let storedScores ={
-    'inital': '',
-    'score': ''
+  
+}
+
+function displayHighScore(initals){
+  let storedScoresObj ={
+    initial: '',
+    score: ''
   }
-  storedScores.inital = inital
+
+  storedScoresObj.initial = initals
+  storedScoresObj.score = correctAnswers
+
+
+  console.log('stored initials ',storedScoresObj.initial)
+  console.log('stored score ',storedScoresObj.score)
+  storedScores.push(storedScoresObj)
+
+  localStorage.setItem("pastScores", JSON.stringify(storedScores))
+
+  for ( let i=0; i < storedScores.length; i++){
+    console.log(storedScores[i])
+    let displayScore = storedScores[i].score;
+    let displayInitial = storedScores[i].initial;
+    console.log("displayScore", displayScore)
+    console.log("displayInitial", displayInitial)
+
+    let colScore = document.createElement("td")
+    let colInitial =document.createElement("td")
+
+    colScore.innerHTML = displayScore
+    colInitial.innerHTML = displayInitial
+
+    scoreEl.append(colScore, colInitial)
+  }
 }
 
 
-
-
-
-
-
-/* attemping to store scores in local storage. This was the only thing I was unable to accomplish. 
-
-const score = {
-  score: correctAnswers,
-  name: initals.value
-};
-highScore.push(score); 
-
-var highScore =localStorage.setItem("correctAnswers", JSON.stringify([]));   
-localStorage.getItem('correctAnswers', JSON.parse([])) 
-
-
-localStorage.setItem('highScore', highScore);
-var HighScore = localStorage.getItem('highScore');
-if (HighScore == null || HighScore == "null") {
-  HighScore = 0;
+function clearScore() {
+  localStorage.clear()
+  location.reload()
 }
-
-if (user.points > HighScore) {
-  highScore = parseInt(HighScore);
-}
-return highScore 
-
-
-
-
-
-*/
