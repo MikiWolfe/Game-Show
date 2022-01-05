@@ -1,19 +1,22 @@
 * {
+  margin:0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(251, 229, 251);
   text-align: center;
   box-sizing: border-box;
   color: rgb(85, 10, 85);
 }
-
+body{
+  background-image: linear-gradient(to bottom right, rgb(207, 133, 236), rgb(251, 229, 251));
+}
 h2 {
+  background: transparent;
   padding: 2%;
 }
 
 button {
+  background: transparent;
   background-color: purple;
-  font-size: 24px;
-  
+  font-size: 24px;  
   color: white;
   padding: 2%;
   margin: 15px;
@@ -21,6 +24,7 @@ button {
 }
 
 .high-score {
+  background: transparent;
   background-color: purple;
   font-size: 24px;
   color: white;
@@ -31,13 +35,28 @@ button {
 }
 
 nav {
+  background: transparent;
   text-align: left;
   padding: 25px;
   color: rgb(85, 10, 85);
   font-size: 24px;
 }
-
-.coffee-cup {
-  background-color: rgb(251, 229, 251);
+a{
+  background: transparent;
+}
+.coffee-cup { 
+  margin-bottom: 117px ;
+  background: transparent;
+  /* background-color: rgb(251, 229, 251); */
  height: 350px;
+}
+
+.table {
+  background: transparent;
+  margin: 0 auto;
+  margin-bottom: 12%;
+}
+
+#timerTwo{
+  margin-top: 20px;
 }

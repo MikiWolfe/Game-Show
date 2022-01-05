@@ -2,11 +2,12 @@ const javaBtn = document.getElementById("javaBtn");
 const timerTwo = document.getElementById("timerTwo")
 const updateTwo = document.getElementById("updateTwo")
 const mainTwo = document.getElementById("mainTwo")
+if (javaBtn) {javaBtn.addEventListener("click", start)};
 
-const startTime = 50;
+let startTime = 50;
 let current = 0;
-
-let questions = [
+let correctAnswers = 0 
+const questions = [
   {
     question: "What two U.S. states produce coffee?",
     answers: [
@@ -99,8 +100,52 @@ function hide () {
 function time() {
   let timer =setInterval(function(){
     startTime--;
-    timerTwo.textContent = startTime + "seconds remaining";
+    timerTwo.textContent = startTime + "  seconds remaining";
 
   }, 1000)
 }
+if (startTime < 0) {
+  timerTwo.textContent = ""
+}
 
+function start(){
+  hide()
+  displayQuestion(0);
+  time();
+};
+
+function hideCurrent(){
+  mainTwo.innerHTML = ""
+}
+
+function displayQuestion(questionToShow){
+  let java =document.createElement("div");
+  let javaHeader =document.createElement("h2");
+  let currentQuestion = questions[questionToShow];
+  javaHeader.innerHTML =currentQuestion["question"];
+  java.appendChild(javaHeader);
+
+  for (let i= 0; i<currentQuestion["answers"].length; i++){
+    const element = currentQuestion[i];
+    let answer = document.createElement("button");
+    answer.innerHTML = currentQuestion["answers"][i]["answer"]
+    answer.value = currentQuestion["answers"][i]["correct"]
+
+answer.setAttribute(
+  "onClick",
+  "answerLog(this.value)"
+);
+java.appendChild(answer)
+  }
+  mainTwo.appendChild(java)
+};
+
+function answerLog(correct){
+if (correct === "true"){
+  updateTwo.innerHTML = "☕" +  "Correct!" +  "☕"
+  correctAnswers++
+} else {
+  startTime = startTime - 10;
+  updateTwo.innerHTML = "❌" + "Incorrect" + "❌"
+}
+}

@@ -1,10 +1,15 @@
 var timeEl = document.getElementById("timer");
+let startBtn = document.getElementById("start")
 var mainEl = document.getElementById("main");
 let updateEl =document.getElementById("update")
-let scoreEl =document.getElementById("scores")
+const scoreEl =document.getElementById("scores")
 let storedScores = JSON.parse(localStorage.getItem("pastScores")) || []
 
-document.getElementById("start").addEventListener("click", start); //starting the quiz and the timer
+if (startBtn) {startBtn.addEventListener("click", start)}; //starting the quiz and the timer
+if (scoreEl)  {
+  displayHighScore()
+  scoreEl.addEventListener("load", displayHighScore)};
+
 
 var startTime = 50; //start time for the timer
 var current = 0;
@@ -149,7 +154,7 @@ function displayQuestion(questionToShow) {
 // event listener on click to show next question
 function answerLog(correct) {
   if (correct === "true") {
-    updateEl.innerHTML ="⭐" + "Correct!" + "⭐"
+    updateEl.innerHTML ="☕" +  "Correct!" +  "☕"
     // Tried to not put the value in a string but for some reason would not accept Boolean here
     correctAnswers++;
   } else {
@@ -171,7 +176,7 @@ function answerLog(correct) {
         "You got " + correctAnswers + " questions right!";
       timeEl.style.display = "none";
       updateEl.style.display ="none";
-      displayHighScore(initals)
+      storeHighScore(initals)
     }
     else {
       alert("please instert your initials")
@@ -180,7 +185,7 @@ function answerLog(correct) {
   
 }
 
-function displayHighScore(initals){
+function storeHighScore(initals){
   let storedScoresObj ={
     initial: '',
     score: ''
@@ -195,21 +200,28 @@ function displayHighScore(initals){
   storedScores.push(storedScoresObj)
 
   localStorage.setItem("pastScores", JSON.stringify(storedScores))
+}
 
+function displayHighScore(){
   for ( let i=0; i < storedScores.length; i++){
     console.log(storedScores[i])
+    const {score , initial} = storedScores[i]
+    console.log(score)
+    console.log(initial)
     let displayScore = storedScores[i].score;
     let displayInitial = storedScores[i].initial;
     console.log("displayScore", displayScore)
     console.log("displayInitial", displayInitial)
 
+    let scoreRow = document.createElement("tr")
     let colScore = document.createElement("td")
     let colInitial =document.createElement("td")
 
     colScore.innerHTML = displayScore
     colInitial.innerHTML = displayInitial
-
-    scoreEl.append(colScore, colInitial)
+    scoreRow.append(colInitial, colScore);
+    if(scoreEl){scoreEl.append(scoreRow)}
+    else(console.log(`scoreEl is ${scoreEl}`))
   }
 }
 

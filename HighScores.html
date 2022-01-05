@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High Scores</title>
-    <link rel="stylesheet" href="assets/css/style.css"></style>
-</head>
-<body>
-    <nav>
-    <a class = "high-score" href="index.html">Home</a>
-    </nav>
 
-    <h1>High Scores:</h1> <br>
-    <div>
-      <table class="table">
-        <tr id="scores">
-        <th>Name</th>
-        <th>Score</th>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Scores</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="high-score" href="index.html">Home</a>
+  </nav>
+
+  <h1>High Scores:</h1> 
+  <br>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name: </th>
+          <th>Score: </th>
         </tr>
-      </table>
+      </thead>
+      <tbody id="scores"></tbody>
+    </table>
   </div>
-<div><button onclick="clearScore()">Clear scores</button></div>
+
+  <h1>High Scores Quiz 2:</h1> <br>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name: </th>
+          <th>Score: </th>
+        </tr>
+      </thead>
+      <tbody id="scoreTwo"></tbody>
+    </table>
+  </div>
+ <div><button onclick="clearScore()">Clear scores</button></div>
 </body>
 
-<script src ="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
+
 </html>
