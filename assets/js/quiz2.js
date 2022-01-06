@@ -1,13 +1,17 @@
-const javaBtn = document.getElementById("javaBtn");
-const timerTwo = document.getElementById("timerTwo")
-const updateTwo = document.getElementById("updateTwo")
-const mainTwo = document.getElementById("mainTwo")
+let javaBtn = document.getElementById("javaBtn");
+let timerTwo = document.getElementById("timerTwo")
+let updateTwo = document.getElementById("updateTwo")
+let mainTwo = document.getElementById("mainTwo")
+const scoreElTwo = document.getElementById("scoreTwo")
+
+let storedScoresTwo = JSON.parse(localStorage.getItem("pastScoresTwo")) || []
+
 if (javaBtn) {javaBtn.addEventListener("click", start)};
 
-let startTime = 50;
-let current = 0;
-let correctAnswers = 0 
-const questions = [
+let startTimeTwo = 50;
+let currentTwo = 0;
+let correctAnswersTwo = 0 
+const questionsTwo = [
   {
     question: "What two U.S. states produce coffee?",
     answers: [
@@ -99,13 +103,14 @@ function hide () {
 
 function time() {
   let timer =setInterval(function(){
-    startTime--;
-    timerTwo.textContent = startTime + "  seconds remaining";
+    startTimeTwo--;
+    timerTwo.textContent = startTimeTwo + "  seconds remaining";
 
   }, 1000)
 }
-if (startTime < 0) {
-  timerTwo.textContent = ""
+
+if (startTimeTwo < 0) {
+  timerTwo.style.display ="none"
 }
 
 function start(){
@@ -121,11 +126,11 @@ function hideCurrent(){
 function displayQuestion(questionToShow){
   let java =document.createElement("div");
   let javaHeader =document.createElement("h2");
-  let currentQuestion = questions[questionToShow];
+  let currentQuestion = questionsTwo[questionToShow];
   javaHeader.innerHTML =currentQuestion["question"];
   java.appendChild(javaHeader);
 
-  for (let i= 0; i<currentQuestion["answers"].length; i++){
+  for (let i= 0; i < currentQuestion["answers"].length; i++){
     const element = currentQuestion[i];
     let answer = document.createElement("button");
     answer.innerHTML = currentQuestion["answers"][i]["answer"]
@@ -143,9 +148,62 @@ java.appendChild(answer)
 function answerLog(correct){
 if (correct === "true"){
   updateTwo.innerHTML = "☕" +  "Correct!" +  "☕"
-  correctAnswers++
+  correctAnswersTwo++
 } else {
-  startTime = startTime - 10;
+  startTimeTwo = startTimeTwo - 10;
   updateTwo.innerHTML = "❌" + "Incorrect" + "❌"
+}
+hideCurrent();
+if (currentTwo < questionsTwo.length - 1) {
+  currentTwo++;
+  displayQuestion(currentTwo) }
+    else {
+      let initials = prompt("Please enter your initials for scores");
+      if (initials)
+      {
+        document.getElementById("first").innerHTML +=
+        "You got" + correctAnswersTwo + " questions right!";
+        let top = document.getElementById("first");
+        top.style.display = "block"
+        timerTwo.style.display = "none"
+
+        storeHighScore(initials)
+      }
+      else {
+        alert("Please enter your initials")
+      }
+    }
+  }
+
+function storeHighScore(initials) {
+  let storedScoresObj ={
+    initial: '',
+    score: '',
+  } 
+storedScoresObj.initial = initials
+storedScoresObj.score = correctAnswersTwo
+
+storedScoresTwo.push(storedScoresObj)
+localStorage.setItem("pastScoresTwo", JSON.stringify(storedScoresTwo))
+
+}
+
+function displayHighScore(){
+for (let i=0; i < storedScoresTwo.length; i++){
+  const {score , initial} = storedScoresTwo[i]
+  console.log(score)
+  console.log(initial)
+  let displayScore = storedScoresTwo[i].score;
+  let displayInitial = storedScoresTwo[i].initial;
+
+  let scoreRow = document.createElement("tr");
+  let colScore = document.createElement("td");
+  let colInitial = document.createElement("td")
+
+colScore.innerHTML = displayScore
+colInitial.innerHTML = displayInitial
+scoreRow.append(colInitial, colScore)
+if(scoreElTwo){scoreElTwo.append(scoreRow)}
+else(console.log`scoreElTwo is ${scoreElTwo}`)
 }
 }

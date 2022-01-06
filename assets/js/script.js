@@ -167,15 +167,18 @@ function answerLog(correct) {
     current++;
     displayQuestion(current);
   } else {
-    var initals = prompt("Please enter you initals for scores"); //letting users add their itials to be stored in local storage for later
+    var initals = prompt("Please enter you initials for scores"); //letting users add their itials to be stored in local storage for later
 
     if(initals){
 
       //displaying how many questions the user got correct and hiding the timer if there is still time left on it.
       document.getElementById("main").innerHTML +=
         "You got " + correctAnswers + " questions right!";
+        var top = document.getElementById("head");
+        top.style.display = "block"
       timeEl.style.display = "none";
       updateEl.style.display ="none";
+
       storeHighScore(initals)
     }
     else {
