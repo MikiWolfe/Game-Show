@@ -6,8 +6,9 @@
   color: rgb(85, 10, 85);
 }
 body{
-  background-image: linear-gradient(to bottom right, rgb(207, 133, 236), rgb(251, 229, 251));
+  background-color:  rgb(207, 133, 236)
 }
+
 h2 {
   background: transparent;
   padding: 2%;
